@@ -37,7 +37,7 @@ import com.example.thefestivalminichallenge1.ui.theme.customColors
 
 
 @Composable
-fun CardStage(
+fun ExpandableStageCard(
     modifier: Modifier = Modifier,
     stage: UiStage,
     colorIndex: Int,
@@ -136,9 +136,8 @@ fun FestivalLineUpScreen(
     modifier: Modifier, state: FestivalLineUpUiState, onAction: (FestivalLineUpUiEvent) -> Unit
 ) {
     //   val topPaddingInDp = with(LocalDensity.current) { 80.toDp() }
-
     LazyColumn(
-        modifier = Modifier.padding(4.dp),
+        modifier = modifier.padding(4.dp),
         contentPadding = PaddingValues(top = 80.dp /*topPaddingInDp*//*, start = 4.dp*/),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
@@ -166,7 +165,7 @@ fun FestivalLineUpScreen(
             }
         }
         items(state.stages.size) { index ->
-            CardStage(
+            ExpandableStageCard(
                 Modifier,
                 state.stages[index],
                 index, onAction = onAction
