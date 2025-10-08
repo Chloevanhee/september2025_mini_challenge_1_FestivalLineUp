@@ -1,6 +1,14 @@
 # Festival Lineup App
 
-An Android application that displays a music festival lineup, allowing users to view scheduled performers by stage.
+An Android application that displays a music festival lineup, allowing users to view scheduled
+performers by stage.
+
+## Context
+
+This project was created for the September Mini Challenges in the Mobile Dev Campus by Philipp
+Lackner, using the provided Figma design and instructions.  
+If you are interested in joining the Campus, you can register
+here: [https://pl-coding.com/campus/](https://pl-coding.com/campus/)
 
 ## Features
 
@@ -12,8 +20,14 @@ An Android application that displays a music festival lineup, allowing users to 
 
 ## Demo
 
-A demo video showing the app's functionality can be found in the `doc` directory:
-- [App Demo Video](doc/miniChallenge1_September_2025_TheFestivalLineUp.webm)
+![Demo Video](doc/miniChallenge1_September_2025_TheFestivalLineUp.gif)
+
+The demo shows:
+
+1. Expanding a stage by tapping
+2. Viewing the performer schedule
+3. Switching between stages (auto-collapse)
+4. Collapsing the active stage
 
 ## Project Structure
 
@@ -27,7 +41,6 @@ app/
 │       │   └── presenter/      # UI layer (ViewModel, UI models, mappers)
 │       └── res/               # Resources
 doc/                          # Documentation and demo materials
-├── miniChallenge1_September_2025_TheFestivalLineUp.webm
 ```
 
 ## Implementation Details
@@ -41,6 +54,7 @@ doc/                          # Documentation and demo materials
 ## Features Showcase
 
 The app demonstrates the following key interactions:
+
 1. Tap a stage to expand and show performers
 2. Tap another stage to switch (previous stage collapses)
 3. Tap an expanded stage to collapse it
