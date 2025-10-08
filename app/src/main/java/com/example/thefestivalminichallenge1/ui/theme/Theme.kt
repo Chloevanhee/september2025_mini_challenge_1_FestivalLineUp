@@ -30,7 +30,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = OnSurface40,
 
 
-)
+    )
 
 @Composable
 fun TheFestivalMiniChallenge1Theme(

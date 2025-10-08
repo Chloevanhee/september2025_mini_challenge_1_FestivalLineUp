@@ -1,6 +1,5 @@
 import com.example.thefestivalminichallenge1.presenter.uiModel.UiConcert
 import com.example.thefestivalminichallenge1.presenter.uiModel.UiStage
-import kotlin.collections.listOf
 
 interface FestivalRepository {
     fun getStages(): List<UiStage>
@@ -11,7 +10,7 @@ class FakeFestivalRepository : FestivalRepository {
         return listOf(
             UiStage(
                 "Stage A",
-                concerts = listOf<UiConcert>(
+                concerts = listOf(
                     UiConcert("Morning Bloom", "11:00"),
                     UiConcert("Synth River", "12:30")
                 )
@@ -29,5 +28,4 @@ class FakeFestivalRepository : FestivalRepository {
             )
         )
     }
-
 }

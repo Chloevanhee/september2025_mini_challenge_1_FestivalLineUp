@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
     showBackground = true
 )
 @Composable
-fun GreetingPreview() {
+fun TheFestivalMiniChallenge1Preview() {
     TheFestivalMiniChallenge1Theme {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 

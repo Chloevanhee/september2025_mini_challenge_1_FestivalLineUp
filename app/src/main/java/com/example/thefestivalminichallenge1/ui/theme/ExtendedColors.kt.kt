@@ -4,11 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 
-data class CustomColors (
+data class CustomColors(
     val cardBackground1: Color,
     val cardBackground2: Color,
     val cardBackground3: Color
 )
+
 val lightCustomColors = CustomColors(
     cardBackground1 = Lime40,
     cardBackground2 = Orange40,
