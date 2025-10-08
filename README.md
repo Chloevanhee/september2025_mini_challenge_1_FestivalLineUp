@@ -20,7 +20,7 @@ here: [https://pl-coding.com/campus/](https://pl-coding.com/campus/)
 
 ## Demo
 
-![Demo Video](doc/miniChallenge1_September_2025_TheFestivalLineUp.gif)
+<img src="doc/miniChallenge1_September_2025_TheFestivalLineUp.gif" width="400" alt="demo app preview"/>
 
 The demo shows:
 
