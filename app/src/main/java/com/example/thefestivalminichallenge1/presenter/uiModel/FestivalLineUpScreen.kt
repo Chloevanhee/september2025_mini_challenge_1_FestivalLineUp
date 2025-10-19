@@ -1,5 +1,6 @@
 package com.example.thefestivalminichallenge1.presenter.uiModel
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,7 +16,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,19 +44,15 @@ fun ExpandableStageCard(
     colorIndex: Int,
     onAction: (FestivalLineUpUiEvent) -> Unit
 ) {
-    val cardModifier = if (!stage.isExpanded) {
-        modifier.height(120.dp)
-    } else {
-        modifier
-    }
+
     val cardColors = listOf(
         customColors.cardBackground1,
         customColors.cardBackground2,
         customColors.cardBackground3
     )
     Box(
-        contentAlignment = Alignment.Center,
-        modifier = cardModifier
+        contentAlignment = Alignment.TopCenter,
+        modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(color = cardColors[colorIndex % cardColors.size])
@@ -63,12 +60,18 @@ fun ExpandableStageCard(
     ) {
         Column(
             modifier = Modifier.fillMaxWidth()
+                .animateContentSize(),
+              //  .background(Color.Cyan),
+            verticalArrangement = Arrangement.Top
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 4.dp, vertical = 16.dp)
-                    .background(cardColors[colorIndex % cardColors.size]),
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 32.dp /*if (!stage.isExpanded) 32.dp else 16.dp*/
+                    ),
+                   // .background(Color.Yellow),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -89,7 +92,7 @@ fun ExpandableStageCard(
                         } else {
                             painterResource(R.drawable.check_indeterminate_small_24px)
                         },
-                        contentDescription = "extend",
+                        contentDescription = "Expand",
                         modifier = Modifier.size(40.dp),
                         tint = Color(0xFF421E17)
                     )
@@ -97,33 +100,43 @@ fun ExpandableStageCard(
             }
 
             if (stage.isExpanded) {
-                stage.concerts.forEachIndexed { index, concert ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 28.dp, horizontal = 2.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = concert.bandName,
-                            style = MaterialTheme.typography.titleSmall,
-                            color = Color(0xFF421E17),
-                            textAlign = TextAlign.Start,
-                        )
-                        Text(
-                            text = concert.time,
-                            style = MaterialTheme.typography.titleMedium,
-                            color = Color(0xFF421E17),
-                            textAlign = TextAlign.End,
-                        )
-                    }
-                    if (index < stage.concerts.size - 1) {
-                        HorizontalDivider(
-                            modifier = Modifier.padding(vertical = 2.dp),
-                            thickness = DividerDefaults.Thickness,
-                            color = Color(0xFF421E17)
-                        )
+               // Spacer(modifier = Modifier.height(28.dp))
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                       // .background(Color.Red)
+                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                        .padding(bottom = 16.dp),
+                       // .background(Color.Green),
+                ) {
+                    stage.concerts.forEachIndexed { index, concert ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = concert.bandName,
+                                style = MaterialTheme.typography.titleSmall,
+                                color = Color(0xFF421E17),
+                                textAlign = TextAlign.Start,
+                            )
+                            Text(
+                                text = concert.time,
+                                style = MaterialTheme.typography.titleMedium,
+                                color = Color(0xFF421E17),
+                                textAlign = TextAlign.End,
+                            )
+                        }
+                        if (index < stage.concerts.size - 1) {
+                            HorizontalDivider(
+                                modifier = Modifier.padding(vertical = 4.dp),
+                                thickness = 2.dp,
+                                color = Color(0xFF421E17)
+                            )
+                        }
                     }
                 }
             }
@@ -135,15 +148,13 @@ fun ExpandableStageCard(
 fun FestivalLineUpScreen(
     modifier: Modifier, state: FestivalLineUpUiState, onAction: (FestivalLineUpUiEvent) -> Unit
 ) {
-    //   val topPaddingInDp = with(LocalDensity.current) { 80.toDp() }
     LazyColumn(
         modifier = modifier.padding(4.dp),
-        contentPadding = PaddingValues(top = 80.dp /*topPaddingInDp*//*, start = 4.dp*/),
+        contentPadding = PaddingValues(top = 80.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         item {
             Column(
-                //modifier = Modifier
                 modifier = Modifier
                     .fillMaxWidth()
                     // .padding(vertical = 16.dp/*, horizontal = 16.dp*/)
@@ -152,15 +163,15 @@ fun FestivalLineUpScreen(
             ) {
                 Text(
                     text = "Festival Lineup",
-                    //  modifier = Modifier.weight(0.6f),
                     style = MaterialTheme.typography.headlineLarge,
-                    color = Color(0xFF421E17)//MaterialTheme.colorScheme.primary
+                    color = Color(0xFF421E17),
+                    fontWeight = FontWeight(600)
                 )
                 Text(
                     text = "Tap a stage to view performers",
-                    // modifier = Modifier.weight(0.4f),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.secondary,
+                    fontWeight = FontWeight(400)
                 )
             }
         }

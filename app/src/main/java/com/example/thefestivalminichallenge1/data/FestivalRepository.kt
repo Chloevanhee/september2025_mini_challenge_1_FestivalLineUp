@@ -19,7 +19,8 @@ class FakeFestivalRepository : FestivalRepository {
                     UiConcert("The Suntones", "13:00"),
                     UiConcert("Blue Voltage", "14:15"),
                     UiConcert("Midnight Echo", "15:30")
-                )
+
+                ),true
             ), UiStage(
                 "Stage C", concerts = listOf<UiConcert>(
                     UiConcert("Echo Machine ", "16:00"),
