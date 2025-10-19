@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -44,7 +43,6 @@ fun ExpandableStageCard(
     colorIndex: Int,
     onAction: (FestivalLineUpUiEvent) -> Unit
 ) {
-
     val cardColors = listOf(
         customColors.cardBackground1,
         customColors.cardBackground2,
@@ -56,22 +54,30 @@ fun ExpandableStageCard(
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(color = cardColors[colorIndex % cardColors.size])
-            .padding(horizontal = 4.dp),
+            .padding(horizontal = 4.dp)
+            .padding(vertical = 8.dp),
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .animateContentSize(),
-              //  .background(Color.Cyan),
+               // .background(Color.Gray),
             verticalArrangement = Arrangement.Top
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        horizontal = 16.dp,
-                        vertical = 32.dp /*if (!stage.isExpanded) 32.dp else 16.dp*/
+                        start = 16.dp,
+                        top = 32.dp,
+                        end =if (!stage.isExpanded) 32.dp else 16.dp,
+                        bottom = 28.dp
                     ),
-                   // .background(Color.Yellow),
+/*                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 32.dp *//*if (!stage.isExpanded) 32.dp else 16.dp*//*
+                    )*/
+                  //  .background(Color.Yellow),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -100,20 +106,26 @@ fun ExpandableStageCard(
             }
 
             if (stage.isExpanded) {
-               // Spacer(modifier = Modifier.height(28.dp))
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                        // .background(Color.Red)
-                        .padding(horizontal = 16.dp, vertical = 4.dp)
-                        .padding(bottom = 16.dp),
+/*                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                        .padding(bottom = 16.dp)*/
+                        .padding(
+                            start = 16.dp,
+                            top = 0.dp,
+                            end = 16.dp,
+                            bottom = 28.dp
+                        ),
                        // .background(Color.Green),
                 ) {
                     stage.concerts.forEachIndexed { index, concert ->
                         Row(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 12.dp),
+                                .fillMaxWidth(),
+                                //.padding(vertical = 12.dp)
+                              //  .background(Color.Blue),
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
@@ -132,7 +144,7 @@ fun ExpandableStageCard(
                         }
                         if (index < stage.concerts.size - 1) {
                             HorizontalDivider(
-                                modifier = Modifier.padding(vertical = 4.dp),
+                                modifier = Modifier.padding(vertical = 16.dp),
                                 thickness = 2.dp,
                                 color = Color(0xFF421E17)
                             )
