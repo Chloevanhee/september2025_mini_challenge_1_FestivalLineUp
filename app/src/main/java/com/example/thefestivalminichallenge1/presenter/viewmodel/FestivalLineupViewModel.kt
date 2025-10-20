@@ -1,4 +1,4 @@
-package com.example.thefestivalminichallenge1.presenter.uiModel
+package com.example.thefestivalminichallenge1.presenter.viewmodel
 
 import FakeFestivalRepository
 import FestivalRepository
@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.thefestivalminichallenge1.presenter.screens.FestivalLineUpScreen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

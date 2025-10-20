@@ -1,4 +1,4 @@
-package com.example.thefestivalminichallenge1.presenter.uiModel
+package com.example.thefestivalminichallenge1.presenter.viewmodel
 
 data class UiConcert(val bandName: String, val time: String)
 

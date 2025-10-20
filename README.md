@@ -36,10 +36,12 @@ app/
 ├── src/
 │   └── main/
 │       ├── java/com/example/thefestivalminichallenge1/
-│       │   ├── data/           # Data layer with repositories
-│       │   ├── domain/         # Domain models
-│       │   └── presenter/      # UI layer (ViewModel, UI models, mappers)
-│       └── res/               # Resources
+│       │   ├── data/           # Data layer (repositories)
+│       │   ├── domain/         # Domain layer
+│       │   │   ├── model/      # Domain models (e.g., Stage, Performer)
+│       │   │   └── usecase/    # Business logic (use cases)
+│       │   └── presenter/      # UI layer (ViewModel, UI models, etc.)
+│       └── res/               # Android resources
 doc/                          # Documentation and demo materials
 ```
 

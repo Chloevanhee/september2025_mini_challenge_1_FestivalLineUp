@@ -1,8 +1,8 @@
 package com.example.thefestivalminichallenge1.presenter.mapper
 
 import com.example.thefestivalminichallenge1.domain.Stage
-import com.example.thefestivalminichallenge1.presenter.uiModel.UiConcert
-import com.example.thefestivalminichallenge1.presenter.uiModel.UiStage
+import com.example.thefestivalminichallenge1.presenter.viewmodel.UiConcert
+import com.example.thefestivalminichallenge1.presenter.viewmodel.UiStage
 
 
 class StageMapper {

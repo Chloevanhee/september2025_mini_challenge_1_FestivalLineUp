@@ -1,4 +1,4 @@
-package com.example.thefestivalminichallenge1.presenter.uiModel
+package com.example.thefestivalminichallenge1.presenter.screens
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
@@ -32,6 +32,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.thefestivalminichallenge1.R
+import com.example.thefestivalminichallenge1.presenter.viewmodel.FestivalLineUpUiEvent
+import com.example.thefestivalminichallenge1.presenter.viewmodel.FestivalLineUpUiState
+import com.example.thefestivalminichallenge1.presenter.viewmodel.FestivalLineupViewModelRoot
+import com.example.thefestivalminichallenge1.presenter.viewmodel.UiStage
 import com.example.thefestivalminichallenge1.ui.theme.TheFestivalMiniChallenge1Theme
 import com.example.thefestivalminichallenge1.ui.theme.customColors
 

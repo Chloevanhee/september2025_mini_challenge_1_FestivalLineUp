@@ -1,5 +1,5 @@
-import com.example.thefestivalminichallenge1.presenter.uiModel.UiConcert
-import com.example.thefestivalminichallenge1.presenter.uiModel.UiStage
+import com.example.thefestivalminichallenge1.presenter.viewmodel.UiConcert
+import com.example.thefestivalminichallenge1.presenter.viewmodel.UiStage
 
 interface FestivalRepository {
     fun getStages(): List<UiStage>
